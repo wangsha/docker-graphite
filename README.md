@@ -30,10 +30,12 @@ Use it in a playbook as follows, assuming you already have docker setup:
 ```
 
 Have a look at the [defaults/main.yml](defaults/main.yml) for role variables
-that can be overridden! If you need a playbook to set Docker itself, have a
-look at
-[angstwad.docker_ubuntu](https://github.com/angstwad/docker.ubuntu) Galaxy
-role.
+that can be overridden.
+
+If you need a playbook to set Docker itself, have a look at [angstwad.docker_ubuntu](https://github.com/angstwad/docker.ubuntu) Galaxy role.
+
+Default docker image used is [sitespeedio/graphite](https://hub.docker.com/r/sitespeedio/graphite/). Basic auth account `guest/guest`.
+
 
 License
 -------
