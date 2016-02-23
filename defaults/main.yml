@@ -1,0 +1,19 @@
+---
+# defaults file for docker-graphite
+docker_graphite_name: graphite
+docker_graphite_image: sitespeedio/graphite
+docker_graphite_env: {}
+docker_graphite_net: default
+docker_graphite_expose:
+  - 80
+  - 2003
+docker_graphite_ports:
+  - 80:80
+  - 2003:2003
+docker_graphite_volumes: []
+docker_graphite_links: []
+docker_graphite_log_driver: syslog
+docker_graphite_log_opt:
+  syslog-facility: local0
+  syslog-tag: es
+docker_api_version: 1.21
