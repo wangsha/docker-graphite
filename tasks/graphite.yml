@@ -9,6 +9,7 @@
     name: "{{ docker_graphite_name }}"
     ports: "{{ docker_graphite_ports }}"
     links: "{{ docker_graphite_links }}"
+    volumes: "{{ docker_graphite_volumes }}"
     log_driver: "{{ docker_graphite_log_driver }}"
     log_opt: "{{ docker_graphite_log_opt }}"
     pull: always
