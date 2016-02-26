@@ -10,6 +10,7 @@
     ports: "{{ docker_graphite_ports }}"
     links: "{{ docker_graphite_links }}"
     volumes: "{{ docker_graphite_volumes }}"
+    memory_limit: "{{ docker_graphite_memory_limit }}"
     log_driver: "{{ docker_graphite_log_driver }}"
     log_opt: "{{ docker_graphite_log_opt }}"
     pull: always
