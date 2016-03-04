@@ -1,0 +1,23 @@
+[carbon]
+pattern = ^carbon\.
+retentions = 1m:90d
+
+[default_1min_for_1day]
+pattern = .*
+retentions = 60s:1d
+
+# statsd
+[stats]
+priority = 110
+pattern = ^stats.*
+retentions = 10s:6h,1m:7d,10m:1y
+
+# collectd
+[collectd]
+pattern = ^collectd.*
+retentions = 10s:6h,1m:7d,10m:1y
+
+{% for key, value in graphite_storage_schemas_extra %}
+[{{ key }}]
+{{ value }}
+{% endfor %}

@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+SECRET_KEY = "{{ graphite_web_secret_key }}"
+TIME_ZONE = "{{ graphite_web_timezone }}"
+DEBUG = "{{ graphite_web_debug }}"
+DATABASES = {
+    'default': {
+        'NAME': '{{ graphite_web_db_name }}',
+        'ENGINE': '{{ graphite_web_db_engine }}',
+        'USER': '{{ graphite_web_db_user }}',
+        'PASSWORD': '{{ graphite_web_db_password }}',
+        'HOST': '{{ graphite_web_db_host }}',
+        'PORT': '{{ graphite_web_db_port }}',
+    }
+}
+
+{% for item in graphite_web_extra %}
+{{ item }}
+{% endfor %}
