@@ -28,7 +28,7 @@ pattern = .*
 xFilesFactor = 0.3
 aggregationMethod = average
 
-{% for key, value in graphite_storage_aggregation_extra %}
+{% for key, value in graphite_storage_aggregation_extra.iteritems() %}
 [{{ key }}]
 {{ value }}
 {% endfor %}

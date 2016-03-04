@@ -17,7 +17,7 @@ retentions = 10s:6h,1m:7d,10m:1y
 pattern = ^collectd.*
 retentions = 10s:6h,1m:7d,10m:1y
 
-{% for key, value in graphite_storage_schemas_extra %}
+{% for key, value in graphite_storage_schemas_extra.iteritems() %}
 [{{ key }}]
 {{ value }}
 {% endfor %}

@@ -27,6 +27,11 @@ Use it in a playbook as follows, assuming you already have docker setup:
   roles:
     - role: 'wangsha.docker-graphite'
       become: true
+      graphite_storage_schemas_extra:
+        statsd: |
+          priority = 110
+          pattern = ^stats.*
+          retentions = 10s:6h,1m:7d,10m:1y
 ```
 
 Have a look at the [defaults/main.yml](defaults/main.yml) for role variables
