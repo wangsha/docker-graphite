@@ -34,7 +34,7 @@ docker_graphite_data_dir: "{{ graphite_root }}/data"
 docker_graphite_directory_volumes:
   - "{{ docker_graphite_data_dir }}:/opt/graphite/storage/whisper/:rw"
 docker_graphite_template_path: ""
-docker_graphite_htpasswd: "/opt/graphite/conf/.htpasswd"
+docker_graphite_htpasswd: "{{ graphite_root }}/conf/.htpasswd"
 docker_graphite_htpasswd_users:
   - { name: "root", password: "root" }
 
