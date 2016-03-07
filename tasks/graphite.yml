@@ -1,7 +1,19 @@
+
+- name: ensure group exists
+  group: name={{ graphite_group }} state=present
+
+- name: ensure user exists
+  user: name={{ graphite_user }} group={{ graphite_group }}
+
+- name: Change file permissions
+  file: name={{ graphite_root }} recurse=yes
+    owner={{ graphite_user }} group={{ graphite_group }}
+
 - name: Ensure docke volume mapping host directories exist
   file:
     state: directory
     path: "{{ item | regex_replace('^(?P<host>.+):(?P<container>.+):(?P<mode>.+)', '\\g<host>') }}"
+    mode: 'u=rw,g=r,o=r'
   with_items:
     - "{{ docker_graphite_directory_volumes }}"
   tags:
@@ -13,6 +25,7 @@
   file:
     state: directory
     path: "{{ item | regex_replace('^(?P<host>.+):(?P<container>.+):(?P<mode>.+)', '\\g<host>') | dirname }}"
+    mode: 'u=rw,g=r,o=r'
   with_items:
     - "{{ docker_graphite_file_volumes }}"
   tags:
@@ -21,9 +34,9 @@
 
 - name: Copy docker volume mapping host file
   template:
-    src="{{ docker_graphite_template_path }}{{ item | regex_replace('^(?P<host>.+):(?P<container>.+):(?P<mode>.+)', '\\g<host>') | basename }}.j2"
-    dest="{{ item | regex_replace('^(?P<host>.+):(?P<container>.+):(?P<mode>.+)', '\\g<host>') }}"
-    mode='0644'
+    src: "{{ docker_graphite_template_path }}{{ item | regex_replace('^(?P<host>.+):(?P<container>.+):(?P<mode>.+)', '\\g<host>') | basename }}.j2"
+    dest: "{{ item | regex_replace('^(?P<host>.+):(?P<container>.+):(?P<mode>.+)', '\\g<host>') }}"
+    mode: 'u=rw,g=r,o=r'
   with_items:
     - "{{ docker_graphite_file_volumes }}"
   tags:

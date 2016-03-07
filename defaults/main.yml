@@ -3,8 +3,8 @@
 graphite_storage_schemas_extra: {}
 graphite_storage_aggregation_extra: {}
 graphite_web_extra: []
-graphite_group: www-data
-graphite_user: www-data
+graphite_group: ubuntu
+graphite_user: ubuntu
 graphite_root: /opt/graphite
 graphite_web_db_engine: "django.db.backends.sqlite3"
 graphite_web_secret_key: "mygraphitesecret"
