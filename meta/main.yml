@@ -4,8 +4,6 @@ dependencies:
   - role: franklinkim.htpasswd
     become: true
     htpasswd_path: ""
-    htpasswd_owner: "{{ graphite_user }}"
-    htpasswd_group: "{{ graphite_group }}"
     htpasswd:
       - name: "{{ docker_graphite_htpasswd | basename }}"
         path: "{{ docker_graphite_htpasswd | dirname }}"
