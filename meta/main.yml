@@ -2,10 +2,10 @@
 allow_duplicates: yes
 dependencies:
   - role: franklinkim.htpasswd
+    htpasswd_path: ""
     htpasswd:
       - name: "{{ docker_graphite_htpasswd | basename }}"
         path: "{{ docker_graphite_htpasswd | dirname }}"
-        group: ubuntu
         users: "{{ docker_graphite_htpasswd_users }}"
 
 galaxy_info:

@@ -30,7 +30,7 @@ docker_graphite_expose:
   - 8125:8125
   - 8126:8126
 docker_graphite_ports: "{{ docker_graphite_expose }}"
-docker_graphite_data_dir: "/opt/graphite/data"
+docker_graphite_data_dir: "{{ graphite_root }}/data"
 docker_graphite_directory_volumes:
   - "{{ docker_graphite_data_dir }}:/opt/graphite/storage/whisper/:rw"
 docker_graphite_template_path: ""
@@ -39,10 +39,10 @@ docker_graphite_htpasswd_users:
   - { name: "root", password: "root" }
 
 docker_graphite_file_volumes:
-  - "/opt/graphite/conf/storage-schemas.conf:/opt/graphite/conf/storage-schemas.conf:ro"
-  - "/opt/graphite/conf/storage-aggregation.conf:/opt/graphite/conf/storage-aggregation.conf:ro"
-  - "/opt/graphite/conf/local_settings.py:/opt/graphite/webapp/graphite/local_settings.py:ro"
-  - "/opt/graphite/conf/nginx.conf:/etc/nginx/nginx.conf:ro"
+  - "{{ graphite_root }}/conf/storage-schemas.conf:/opt/graphite/conf/storage-schemas.conf:ro"
+  - "{{ graphite_root }}/conf/storage-aggregation.conf:/opt/graphite/conf/storage-aggregation.conf:ro"
+  - "{{ graphite_root }}/conf/local_settings.py:/opt/graphite/webapp/graphite/local_settings.py:ro"
+  - "{{ graphite_root }}/conf/nginx.conf:/etc/nginx/nginx.conf:ro"
 
 # file created on host
 docker_graphite_file_volumes_extra:
