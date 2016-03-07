@@ -39,7 +39,8 @@ that can be overridden.
 
 If you need a playbook to set Docker itself, have a look at [angstwad.docker_ubuntu](https://github.com/angstwad/docker.ubuntu) Galaxy role.
 
-Default docker image used is [sitespeedio/graphite](https://hub.docker.com/r/sitespeedio/graphite/). 
+Default docker image used is [hopsoft/graphite-statsd](https://hub.docker.com/r/hopsoft/graphite-statsd/). 
+The image contains both graphite and statsd. To disable statsd, remove corresponding port mappings.
 Basic auth account is `root/root`. Modify `docker_graphite_htpasswd_users` to change default accounts.
 
 
