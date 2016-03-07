@@ -1,14 +1,3 @@
-
-- name: ensure group exists
-  group: name={{ graphite_group }} state=present
-
-- name: ensure user exists
-  user: name={{ graphite_user }} group={{ graphite_group }}
-
-- name: Change file permissions
-  file: name={{ graphite_root }} recurse=yes
-    owner={{ graphite_user }} group={{ graphite_group }}
-
 - name: Ensure docke volume mapping host directories exist
   file:
     state: directory
