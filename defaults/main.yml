@@ -16,7 +16,7 @@ graphite_web_timezone: Asia/Singapore
 
 # defaults file for docker-graphite
 docker_graphite_name: graphite
-docker_graphite_image: hopsoft/graphite-statsd
+docker_graphite_image: hopsoft/graphite-statsd:latest
 docker_graphite_env: {}
 docker_graphite_net: default
 docker_graphite_expose:
