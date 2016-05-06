@@ -57,3 +57,4 @@ docker_api_version: 1.21
 
 #other performance tuning parameter
 carbon_max_updates_per_second: 500
+carbon_whisper_autoflush: False

@@ -31,7 +31,17 @@
   tags:
     - install
     - upgrade
-    
+
+- name: Remove existing {{ docker_graphite_name }} container
+  docker:
+    docker_api_version: "{{ docker_api_version }}"
+    image: "{{ docker_graphite_image }}"
+    name: "{{ docker_graphite_name }}"
+    state: absent
+  tags:
+    - install
+    - upgrade
+
 - name: Run docker graphite container
   become: true
   docker:
