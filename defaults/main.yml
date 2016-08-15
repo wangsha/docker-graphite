@@ -51,7 +51,7 @@ docker_graphite_links: []
 docker_graphite_log_driver: syslog
 docker_graphite_log_opt:
   syslog-facility: local0
-  syslog-tag: "{{ docker_graphite_name }}"
+  tag: "{{ docker_graphite_name }}"
 docker_graphite_memory_limit: 512MB
 docker_api_version: 1.21
 
